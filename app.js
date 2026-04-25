@@ -3,6 +3,7 @@ const connectDB = require("./config/db");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const authRoutes = require("./routes/authRoutes");
 const expenseRoutes = require("./routes/transactionRoutes");
+const categ = require("./routes/categoryRoutes");
 const cors = require("cors");
 
 const app = express();
@@ -16,7 +17,8 @@ app.use(async (req, res, next) => {
 });
 
 app.use("/api/auth", authRoutes);
-app.use("/api/expenses", expenseRoutes);
+app.use("/api/categories", categ);
+
 app.use(errorHandler);
 
 module.exports = app;

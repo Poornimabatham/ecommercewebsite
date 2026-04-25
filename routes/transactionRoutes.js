@@ -22,6 +22,8 @@ const expenseRules = [
 router.use(protect);
 router.get("/summary", getSummary);
 router.route("/").get(getExpenses).post(expenseRules, validate, createExpense);
+router.route("/").post(expenseRules, validate, createExpense);
+
 router
   .route("/:id")
   .put(expenseRules, validate, updateExpense)
