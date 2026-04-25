@@ -4,6 +4,7 @@ const { errorHandler } = require("./middleware/errorMiddleware");
 const authRoutes = require("./routes/authRoutes");
 const expenseRoutes = require("./routes/transactionRoutes");
 const categ = require("./routes/categoryRoutes");
+const productRoutes = require("./routes/productRoute");
 const cors = require("cors");
 
 const app = express();
@@ -18,6 +19,8 @@ app.use(async (req, res, next) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categ);
+app.use("/api/products", productRoutes);
+
 
 app.use(errorHandler);
 
